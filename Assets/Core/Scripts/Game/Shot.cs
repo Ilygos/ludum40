@@ -8,26 +8,26 @@ public class Shot : MonoBehaviour {
     public float fireRate = 1.0f;
     public Transform anchorGun;
 
-    private Vector2 axis;
+    Vector2 axis;
     public GameObject bulletPrefab;
-    private Animator _anim;
-    private float cooldown = 1.0f;
-    private bool scheduledShot = false;
-    private bool prevFireInput = false;
-    private PlayerInput _input;
+    Animator _anim;
+    float cooldown = 1.0f;
+    bool scheduledShot = false;
+    bool prevFireInput = false;
+    PlayerInput _input;
 
 
     // Use this for initialization
     void Start () {
         //_anim = transform.parent.gameObject.GetComponent<Animator>();
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponentInParent<PlayerInput>();
     }
 
     // Update is called once per frame
     void Update()
     {
         cooldown -= Time.deltaTime;
-        if (!GetComponent<CharacterController>()._isDead)
+        if (!GetComponentInParent<CharacterController>()._isDead)
         {
 
 
@@ -37,11 +37,11 @@ public class Shot : MonoBehaviour {
             {
                 axis = inputAxis;
             }
-            transform.rotation = Quaternion.Euler(90, Mathf.Atan2(axis.y, axis.x) * Mathf.Rad2Deg + 64, 0);
+            transform.rotation = Quaternion.Euler(90, Mathf.Atan2(axis.y, axis.x) * Mathf.Rad2Deg , 0);
 
         }
 
-        if (!GetComponent<CharacterController>()._isDead)
+        if (!GetComponentInParent<CharacterController>()._isDead)
         {
             GameObject bullet;
 

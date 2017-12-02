@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4305282231531812}
   - component: {fileID: 212265489195550384}
+  - component: {fileID: 114329096245441478}
   m_Layer: 9
-  m_Name: Canon
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,9 +40,9 @@ GameObject:
   - component: {fileID: 54519588728368310}
   - component: {fileID: 65009423081196986}
   - component: {fileID: 114472000897158446}
-  - component: {fileID: 114793749482746490}
   - component: {fileID: 212375848467622072}
   - component: {fileID: 114634944168112812}
+  - component: {fileID: 95637744405791214}
   m_Layer: 9
   m_Name: PlayerMax
   m_TagString: Player
@@ -146,6 +147,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95637744405791214
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386699809678592}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 060279a86f67cf94e843f764fb3d5c51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114329096245441478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1263783045801038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92452db3902f934b9a1c3b5d0906d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadzone: 0.2
+  fireRate: 1
+  anchorGun: {fileID: 4305282231531812}
+  bulletPrefab: {fileID: 1831107347746560, guid: 555728d43f1a2af40b581d1d1b1ce3cc,
+    type: 2}
 --- !u!114 &114472000897158446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,22 +212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healtPoints: 2
---- !u!114 &114793749482746490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1386699809678592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92452db3902f934b9a1c3b5d0906d2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadzone: 0.2
-  fireRate: 1
-  anchorGun: {fileID: 4305282231531812}
-  bulletPrefab: {fileID: 1831107347746560, guid: 555728d43f1a2af40b581d1d1b1ce3cc,
-    type: 2}
 --- !u!114 &114847143046913738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,6 +238,16 @@ MonoBehaviour:
   GROUNDFRICTION: 0.8
   DASH_AMPLITUDE: 24
   _rgbg: {fileID: 54519588728368310}
+  triggerNames:
+  - right
+  - topRight
+  - front
+  - botLeft
+  - left
+  - topLeft
+  - back
+  - botRight
+  deadzone: 0.2
   input: {fileID: 0}
   _isDead: 0
 --- !u!212 &212265489195550384
