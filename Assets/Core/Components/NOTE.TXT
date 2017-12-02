@@ -1,0 +1,1 @@
+This folder contains the components reusable from a game to another.
