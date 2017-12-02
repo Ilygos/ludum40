@@ -6,6 +6,7 @@ public class EnemyShoot : MonoBehaviour {
 	public float shootDelay = 1;
 	public GameObject bulletPrefab;
 	public Transform anchorGun;
+	public bool targetPlayer;
 
 	Transform bulletsHolder;
 	Transform player;
@@ -17,10 +18,6 @@ public class EnemyShoot : MonoBehaviour {
 		StartCoroutine(ShootCoroutine()); 
 	}
 	
-	void Update () {
-		
-	}
-
 	IEnumerator ShootCoroutine() {
 		while(true) { 
 			yield return new WaitForSeconds(shootDelay);
@@ -30,6 +27,15 @@ public class EnemyShoot : MonoBehaviour {
 	}
 
 	void Shoot() {
-		Instantiate(bulletPrefab, anchorGun.position, anchorGun.rotation, bulletsHolder);
+		Quaternion rotation;
+
+		if (targetPlayer) {
+			Vector3 relativePos = player.position - transform.position;
+			rotation = Quaternion.LookRotation(relativePos);
+		} else {
+			rotation = anchorGun.rotation;
+		}
+
+		Instantiate(bulletPrefab, anchorGun.position, rotation, bulletsHolder);
 	}
 }
