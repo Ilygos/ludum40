@@ -17,10 +17,12 @@ public class CharacterController : MonoBehaviour {
     private bool prevDashInput;
     [HideInInspector]
     public bool _isDead = false;
+	private Vector3 initialPosition;
 
 	// Use this for initialization
 	void Start () {
         input = GetComponent<PlayerInput>();
+		initialPosition = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -31,6 +33,7 @@ public class CharacterController : MonoBehaviour {
     private void LateUpdate()
     {
         _rgbg.velocity *= GROUNDFRICTION;
+		transform.SetY(initialPosition.y);
     }
 
     private void move()

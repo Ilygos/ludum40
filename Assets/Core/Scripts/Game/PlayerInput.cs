@@ -16,7 +16,7 @@ public class PlayerInput : MonoBehaviour {
     public string verticalAim;
     public string dashInput;
     public string parryInput;
-    public Color color;
+    public Color bulletColor;
 
     
 

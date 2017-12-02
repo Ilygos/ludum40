@@ -7,25 +7,30 @@ public class RandomMove : MonoBehaviour {
 
 	Vector3 startPosition;
 	NavMeshAgent navMeshAgent;
+	Vector3 initialPosition;
 
-	// Use this for initialization
-	void Start () {
+	void Start() {
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		startPosition = transform.position;
+		initialPosition = transform.position;
 	}
-	
-	void Update () {
+
+	void Update() {
 		if (HasReachedPosition()) {
 			navMeshAgent.destination = GetNextPosition();
 		}
+	}
+
+	void LateUpdate() {
+		transform.SetY(initialPosition.y);
 	}
 
 	bool HasReachedPosition() {
 		float dist = navMeshAgent.remainingDistance;
 
 		return !float.IsPositiveInfinity(dist)
-			&& navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete
-			&& navMeshAgent.remainingDistance == 0;
+		&& navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete
+		&& navMeshAgent.remainingDistance == 0;
 	}
 
 	Vector3 GetNextPosition() {

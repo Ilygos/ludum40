@@ -10,12 +10,18 @@ public class EnemyShoot : MonoBehaviour {
 
 	Transform bulletsHolder;
 	Transform player;
+	Vector3 initialPosition;
 
 	void Start () {
 		player = GameObject.Find("/Environment/Actors/Player").transform;
 		bulletsHolder = GameObject.Find("/Environment/BulletsHolder").transform;
+		initialPosition = transform.position;
 
 		StartCoroutine(ShootCoroutine()); 
+	}
+
+	void LateUpdate() {
+		transform.SetY(initialPosition.y);
 	}
 	
 	IEnumerator ShootCoroutine() {
