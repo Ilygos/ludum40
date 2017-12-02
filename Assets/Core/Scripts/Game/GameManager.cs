@@ -55,6 +55,7 @@ namespace Game {
 		// Called by SceneManager.LoadSceneAsync when the scene is loaded (but not active yet).
 		void OnGameSceneLoaded(Scene scene, LoadSceneMode mode) {
 			SceneManager.sceneLoaded -= OnGameSceneLoaded;
+            Screenshake.FrameShake(Vector2.left);
 			StartCoroutine(OnGameSceneActive());
 		}
 
