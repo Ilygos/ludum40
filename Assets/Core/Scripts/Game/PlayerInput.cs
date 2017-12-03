@@ -16,12 +16,13 @@ public class PlayerInput : MonoBehaviour {
     public string parryInput;
     public Color bulletColor;
 
-	bool isWindow;
+//	bool isWindow;
 	bool isXboxPlugged;
 
 	void Start() {
-		isWindow = Application.platform == RuntimePlatform.WindowsPlayer;
-		isXboxPlugged = isWindow ? XCI.IsPluggedIn(playerIndex) : false;
+//		isWindow = Application.platform == RuntimePlatform.WindowsPlayer;
+//		isXboxPlugged = isWindow ? XCI.IsPluggedIn(playerIndex) : false;
+		isXboxPlugged = false;
 	}
 
 	public Vector2 moveAxis

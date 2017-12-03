@@ -12,6 +12,12 @@ public class Aim : MonoBehaviour {
 	void Update () {
 		Vector3 position;
 
+		//		Vector2 inputAxis = input.aimAxis;
+
+		//		if (inputAxis.magnitude > deadzone) {
+		//			axis = inputAxis;
+		//		}
+
 		if (MouseHelper.GetMousePositionInWorld(out position, layerMask)) {
 			Vector3 relativePos = position - player.position;
 			rotation = Quaternion.LookRotation(relativePos);

@@ -35,16 +35,7 @@ public class CharacterController : MonoBehaviour {
 	}
 
 	void ChangeSprite() {
-//		Vector2 inputAxis = input.aimAxis;
-
-//		if (inputAxis.magnitude > deadzone) {
-//			axis = inputAxis;
-//		}
-
 		float aimRotation = aim.Rotation.eulerAngles.y;
-
-		Debug.Log("aimRotation: " + aimRotation);
-
 		int eighthOf360 = (int)aimRotation / 45;
 
 		foreach (string boolName in triggerNames)

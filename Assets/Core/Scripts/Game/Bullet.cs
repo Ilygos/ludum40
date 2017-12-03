@@ -13,18 +13,18 @@ public class Bullet : MonoBehaviour {
 
     private Vector3 velocity;
     private object index;
-	private Rigidbody rigidbody;
+	private Rigidbody rbody;
 
     void Start ()
     {
-		rigidbody = GetComponent<Rigidbody>();
+		rbody = GetComponent<Rigidbody>();
         bouncingLeft = MAX_BOUNCE;
         Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>(), true);
-		rigidbody.velocity = transform.forward * SPEED;
+		rbody.velocity = transform.forward * SPEED;
 	}
 	
 	void LateUpdate() {
-		rigidbody.velocity = SPEED * rigidbody.velocity.normalized;
+		rbody.velocity = SPEED * rbody.velocity.normalized;
 	}
 
     private void OnCollisionEnter(Collision collision)

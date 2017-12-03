@@ -15,7 +15,6 @@ public class Shot : MonoBehaviour {
     public float deadzone = 0.2f;
     Vector2 axis;
     bool scheduledShot = false;
-    bool prevFireInput = false;
     PlayerInput _input;
     float cooldown = 1.0f;
 
@@ -31,8 +30,6 @@ public class Shot : MonoBehaviour {
         cooldown -= Time.deltaTime;
         if (!GetComponentInParent<CharacterController>()._isDead)
         {
-            GameObject bullet;
-
             if (_input.fire > 0.2) // Todo: Inpractical in case you press a the wrong time you to have wait a whole fireFrame before firering. Also, don't count frame, count second.
             {
                 // prevFireInput = true;

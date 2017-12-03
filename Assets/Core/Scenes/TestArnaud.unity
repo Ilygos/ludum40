@@ -428,6 +428,12 @@ Prefab:
       propertyPath: aim
       value: 
       objectReference: {fileID: 1668634807}
+    - target: {fileID: 114329096245441478, guid: 074bb119c7b7141228770d41717423b7,
+        type: 2}
+      propertyPath: BULLET_PREFAB
+      value: 
+      objectReference: {fileID: 1831107347746560, guid: 555728d43f1a2af40b581d1d1b1ce3cc,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 074bb119c7b7141228770d41717423b7, type: 2}
   m_IsPrefabParent: 0
@@ -1329,7 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2137066fea944c088ff9bace0877406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  DAMAGE: 1
 --- !u!65 &730837657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1557,7 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2137066fea944c088ff9bace0877406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  DAMAGE: 1
 --- !u!1 &840912143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2137066fea944c088ff9bace0877406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  DAMAGE: 1
 --- !u!65 &947297614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2348,6 +2354,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224818084009586550, guid: c319c79bb410b4396849dc59209d4f9c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c319c79bb410b4396849dc59209d4f9c, type: 2}
