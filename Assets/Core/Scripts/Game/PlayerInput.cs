@@ -26,7 +26,7 @@ public class PlayerInput : MonoBehaviour {
 
 	public Vector2 moveAxis
     {
-        get { return new Vector2(Input.GetAxis(horizontalMove+ playerIndex), Input.GetAxis(verticalMove + playerIndex)); }
+        get { return new Vector2(Input.GetAxis(horizontalMove + playerIndex), Input.GetAxis(verticalMove + playerIndex)); }
     }
     public Vector2 aimAxis
     {
