@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviourSingleton<UIManager> {
     [SerializeField]
     private GameObject looseScreen;
     // Use this for initialization
+
+	private bool isPaused;
+
     void Start () {
         Time.timeScale = 1;
         ingameScreen.SetActive(true);
@@ -36,6 +39,16 @@ public class UIManager : MonoBehaviourSingleton<UIManager> {
         {
             lives[i].gameObject.SetActive(true);
         }
+
+		if (Input.GetButtonDown("Cancel")) {
+			if (isPaused) {
+				isPaused = false;
+				resume();
+			} else {
+				isPaused = true;
+				pause();
+			}
+		}
 	}
 
     public void pause()
@@ -43,8 +56,8 @@ public class UIManager : MonoBehaviourSingleton<UIManager> {
         Time.timeScale = 0;
         ingameScreen.SetActive(false);
         pauseScreen.SetActive(true);
-        winScreen.SetActive(true);
-        looseScreen.SetActive(true);
+        winScreen.SetActive(false);
+        looseScreen.SetActive(false);
     }
 
     public void resume()
@@ -78,5 +91,9 @@ public class UIManager : MonoBehaviourSingleton<UIManager> {
     {
        GameManager.Instance.NewGame();
     }
+
+	public void mainMenu() {
+		GameManager.Instance.GoToTitleScene();
+	}
 
 }
