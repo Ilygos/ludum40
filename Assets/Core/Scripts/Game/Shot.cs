@@ -37,7 +37,7 @@ public class Shot : MonoBehaviour {
             {
                 axis = inputAxis;
             }
-            transform.rotation = Quaternion.Euler(90, Mathf.Atan2(axis.y, axis.x) * Mathf.Rad2Deg , 0);
+            transform.rotation = Quaternion.Euler(90, Mathf.Atan2(axis.y, axis.x) * Mathf.Rad2Deg + 85f, 0);
 
         }
 
