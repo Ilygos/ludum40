@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour {
 
-	public int HEALTH_POINT = 2;
+    public int HEALTH_POINT = 2;
     public AudioClip deathSound;
+    public event Action OnDead;
 
     AudioSource _audio;
 
@@ -20,13 +22,18 @@ public class Health : MonoBehaviour {
             HEALTH_POINT -= bullet.GetDamage();
 
 			if (HEALTH_POINT <= 0) {
-                _audio.clip = deathSound;
-                _audio.Play();
-                if (gameObject.tag == "Player") UIManager.Instance.loose();
-                else DestroyObject(gameObject);
+        _audio.clip = deathSound;
+        _audio.Play();
+				if (gameObject.tag == "Player") {
+					UIManager.Instance.loose();
+				} else {
+					DestroyObject(gameObject);
+				}
+
+				if (OnDead != null) {
+					OnDead.Invoke();
+				}
 			}
-
-
 		}
 	}
 
