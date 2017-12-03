@@ -21,8 +21,6 @@ public class FlyCam : MonoBehaviour
     public float minimumY = -60F;
     public float maximumY = 60F;
 
-    static float rotationY = 0F;
-
     void Update()
     {
         KeyInput();

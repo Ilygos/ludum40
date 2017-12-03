@@ -1,77 +1,63 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterController : MonoBehaviour {
 
-    [SerializeField][Range(1,5)]
-    float SPEED = 2.0f;
-    [SerializeField][Range(0.5f,1)]
-    float GROUNDFRICTION = 0.9f;
-    [SerializeField][Range(16,32)]
-    int DASH_AMPLITUDE = 24;
-    [SerializeField]
-    Rigidbody _rgbg;
-    public string[] triggerNames;
-    [HideInInspector]
-    public float deadzone = 0.2f;
-    [HideInInspector]
-    public PlayerInput input;
-    bool prevDashInput;
-    Animator _anim;
-    [HideInInspector]
-    public bool _isDead = false;
+	[SerializeField][Range(1, 5)]
+	float SPEED = 2.0f;
+	[SerializeField][Range(0.5f, 1)]
+	float GROUNDFRICTION = 0.9f;
+	[SerializeField][Range(16, 32)]
+	int DASH_AMPLITUDE = 24;
+	[SerializeField]
+	Rigidbody rbody;
+	public string[] triggerNames;
+	[HideInInspector]
+	public float deadzone = 0.2f;
+	[HideInInspector]
+	public PlayerInput input;
+	bool prevDashInput;
+	Animator _anim;
+	[HideInInspector]
+	public bool _isDead = false;
 	Vector3 initialPosition;
-    Vector2 axis;
+	public Aim aim;
 
-    // Use this for initialization
-    void Start () {
-        input = GetComponent<PlayerInput>();
-        _anim = GetComponent<Animator>();
+	void Start() {
+		input = GetComponent<PlayerInput>();
+		_anim = GetComponent<Animator>();
+		rbody = GetComponent<Rigidbody>();
 		initialPosition = transform.position;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        move();
-        changeSprite();
 
-    }
+	void Update() {
+		Move();
+		ChangeSprite();
+	}
 
-    void changeSprite()
-    {
-        Vector2 inputAxis = input.aimAxis;
-        if (inputAxis.magnitude > deadzone)
-        {
-            axis = inputAxis;
-        }
+	void ChangeSprite() {
+		float aimRotation = aim.Rotation.eulerAngles.y;
+		int eighthOf360 = (int)aimRotation / 45;
 
-        int angle = (int)(Mathf.Atan2(axis.y, axis.x) * Mathf.Rad2Deg) + 180;
-        int eighthOf360 = angle / 45;
+		foreach (string boolName in triggerNames)
+			_anim.SetBool(boolName, false);
 
-        foreach (string boolName in triggerNames)
-            _anim.SetBool(boolName, false);
+		_anim.SetBool(triggerNames[eighthOf360], true);
+	}
 
-        _anim.SetBool(triggerNames[eighthOf360], true);
-
-    }
-
-    void LateUpdate()
-    {
-        _rgbg.velocity *= GROUNDFRICTION;
+	void LateUpdate() {
+		rbody.velocity *= GROUNDFRICTION;
 		transform.SetY(initialPosition.y);
-    }
+	}
 
-    void move()
-    {
-        Vector2 modifierMove = input.moveAxis;
-        if (input.dash && !prevDashInput)
-        {
-            prevDashInput = true;
-            modifierMove *= DASH_AMPLITUDE;
-        }
-        else if (!input.dash)
-            prevDashInput = false;
-        _rgbg.velocity += new Vector3(modifierMove.x * SPEED, 0, modifierMove.y * SPEED);
-    }
+	void Move() {
+		Vector2 moveAxes = input.moveAxis;
+
+		if (input.dash && !prevDashInput) {
+			prevDashInput = true;
+			moveAxes *= DASH_AMPLITUDE;
+		} else if (!input.dash)
+			prevDashInput = false;
+
+		rbody.velocity += new Vector3(moveAxes.x * SPEED, 0, moveAxes.y * SPEED);
+	}
 }

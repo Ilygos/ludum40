@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
@@ -15,20 +13,18 @@ public class Bullet : MonoBehaviour {
 
     private Vector3 velocity;
     private object index;
+	private Rigidbody rbody;
 
-
-
-    // Use this for initialization
     void Start ()
     {
+		rbody = GetComponent<Rigidbody>();
         bouncingLeft = MAX_BOUNCE;
         Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>(), true);
+		rbody.velocity = transform.forward * SPEED;
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-		
+	void LateUpdate() {
+		rbody.velocity = SPEED * rbody.velocity.normalized;
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -43,16 +39,5 @@ public class Bullet : MonoBehaviour {
             bouncingLeft--;
             if (bouncingLeft <= 0) DestroyObject(gameObject);
         }
-    }
-
-    public void initialize(Vector3 pForwardSource, int playerId)
-    {
-        float lVelocityX = -pForwardSource.x * SPEED;
-        float lVelocityY = -pForwardSource.z * SPEED;
-        velocity = new Vector3(lVelocityX, 0,lVelocityY);
-        transform.rotation = Quaternion.Euler(new Vector3(90,0,0));
-        GetComponent<Rigidbody>().velocity = velocity;
-        index = playerId;
-        var tr = GetComponent<TrailRenderer>();
     }
 }

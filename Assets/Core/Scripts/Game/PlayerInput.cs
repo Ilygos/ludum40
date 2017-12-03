@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using XboxCtrlrInput;
 
 public class PlayerInput : MonoBehaviour {
@@ -18,31 +16,38 @@ public class PlayerInput : MonoBehaviour {
     public string parryInput;
     public Color bulletColor;
 
-    
+//	bool isWindow;
+	bool isXboxPlugged;
+
+	void Start() {
+//		isWindow = Application.platform == RuntimePlatform.WindowsPlayer;
+//		isXboxPlugged = isWindow ? XCI.IsPluggedIn(playerIndex) : false;
+		isXboxPlugged = false;
+	}
 
 	public Vector2 moveAxis
     {
-        get { return new Vector2(Input.GetAxis(horizontalMove+ playerIndex), Input.GetAxis(verticalMove + playerIndex)); }
+        get { return new Vector2(Input.GetAxis(horizontalMove + playerIndex), Input.GetAxis(verticalMove + playerIndex)); }
     }
     public Vector2 aimAxis
     {
         get {
-            float xValue = XCI.IsPluggedIn(playerIndex) ? -XCI.GetAxis(XboxAxis.RightStickX) : Input.GetAxis(horizontalAim + playerIndex);
-            float yValue = XCI.IsPluggedIn(playerIndex) ? XCI.GetAxis(XboxAxis.RightStickY) : Input.GetAxis(verticalAim + playerIndex);
-            return new Vector2(xValue,yValue); }
+			float xValue = isXboxPlugged ? -XCI.GetAxis(XboxAxis.RightStickX) : Input.GetAxis(horizontalAim + playerIndex);
+			float yValue = isXboxPlugged ? XCI.GetAxis(XboxAxis.RightStickY) : Input.GetAxis(verticalAim + playerIndex);
+            return new Vector2(xValue, yValue); }
     }
     public float fire
     {
         get
         {
-            float xValue = XCI.IsPluggedIn(playerIndex) ? XCI.GetAxis(XboxAxis.RightTrigger) : Input.GetAxis(fireButton + playerIndex);
+			float xValue = isXboxPlugged ? XCI.GetAxis(XboxAxis.RightTrigger) : Input.GetAxis(fireButton + playerIndex);
             return xValue;
         }
     }
     public bool dash
     {
         get {
-            bool xValue = XCI.IsPluggedIn(playerIndex) ? XCI.GetButton(XboxButton.RightBumper) : Input.GetButton(dashInput + playerIndex);
+			bool xValue = isXboxPlugged ? XCI.GetButton(XboxButton.RightBumper) : Input.GetButton(dashInput + playerIndex);
             return xValue;
         }
     }
@@ -50,7 +55,7 @@ public class PlayerInput : MonoBehaviour {
     public bool parry
     {
         get {
-            float xValue = XCI.IsPluggedIn(playerIndex) ? XCI.GetAxis(XboxAxis.LeftTrigger) : Input.GetAxis(parryInput + playerIndex);
+			float xValue = isXboxPlugged ? XCI.GetAxis(XboxAxis.LeftTrigger) : Input.GetAxis(parryInput + playerIndex);
             return xValue > 0.2; }
     }
 
