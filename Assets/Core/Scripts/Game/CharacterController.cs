@@ -34,14 +34,17 @@ public class CharacterController : MonoBehaviour {
 		ChangeSprite();
 	}
 
+    void setAnimBoolfalse()
+    {
+        foreach (string boolName in triggerNames)
+            _anim.SetBool(boolName, false);
+    }
+
 	void ChangeSprite() {
 		float aimRotation = aim.Rotation.eulerAngles.y;
 		int eighthOf360 = (int)aimRotation / 45;
-
-		foreach (string boolName in triggerNames)
-			_anim.SetBool(boolName, false);
-
-		_anim.SetBool(triggerNames[eighthOf360], true);
+        setAnimBoolfalse();
+        _anim.SetBool(triggerNames[eighthOf360], true);
 	}
 
 	void LateUpdate() {
@@ -55,6 +58,8 @@ public class CharacterController : MonoBehaviour {
 		if (input.dash && !prevDashInput) {
 			prevDashInput = true;
 			moveAxes *= DASH_AMPLITUDE;
+            setAnimBoolfalse();
+            _anim.SetBool("isDAshing", true);
 		} else if (!input.dash)
 			prevDashInput = false;
 

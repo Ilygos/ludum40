@@ -500,6 +500,7 @@ MonoBehaviour:
   - topLeft
   - back
   - botRight
+  - isDAshing
   deadzone: 0.2
   input: {fileID: 0}
   _isDead: 0
