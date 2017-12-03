@@ -15,7 +15,7 @@ public class Health : MonoBehaviour {
 			Debug.Log("healtPoints: " + healtPoints);
 
 			if (healtPoints <= 0) {
-				Debug.Log("Player is dead");
+                UIManager.Instance.loose();
 			}
 		}
 	}

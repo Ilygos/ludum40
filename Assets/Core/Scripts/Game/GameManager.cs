@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-namespace Game {
 	public class GameManager : MonoBehaviourSingletonPersistent<GameManager> {
 
 		public string titleScene;
@@ -97,4 +96,3 @@ namespace Game {
 		//}
 
 	}
-}
