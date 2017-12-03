@@ -2,10 +2,11 @@
 
 public class GiveDamage : MonoBehaviour {
 
-	public int damage = 1;
+    [SerializeField]
+    int DAMAGE = 1;
 
 	public int GetDamage() {
-		return damage;
+		return DAMAGE;
 	}
 
 }

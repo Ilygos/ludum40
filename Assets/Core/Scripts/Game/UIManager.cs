@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviourSingleton<UIManager> {
             img.gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().healtPoints; i++)
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().HEALTH_POINT; i++)
         {
             lives[i].gameObject.SetActive(true);
         }

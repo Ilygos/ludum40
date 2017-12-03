@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour {
 
-    public float deadzone = 0.2f;
-    public float fireRate = 1.0f;
-    public Transform anchorGun;
 
+    [SerializeField]
+    float FIRE_RATE = 1.0f;
+    [SerializeField]
+    GameObject BULLET_PREFAB;
+
+
+    [HideInInspector]
+    public float deadzone = 0.2f;
     Vector2 axis;
-    public GameObject bulletPrefab;
     Animator _anim;
-    float cooldown = 1.0f;
     bool scheduledShot = false;
     bool prevFireInput = false;
     PlayerInput _input;
+    float cooldown = 1.0f;
 
 
     // Use this for initialization
@@ -52,9 +56,9 @@ public class Shot : MonoBehaviour {
 
                 if (cooldown <= 0.0f && scheduledShot)
                 {
-                    bullet = Instantiate(bulletPrefab, anchorGun.position, Quaternion.identity);
-                    bullet.GetComponent<Bullet>().initialize(anchorGun.up, _input.playerIndex);
-                    cooldown = fireRate;
+                    bullet = Instantiate(BULLET_PREFAB, transform.position, Quaternion.identity);
+                    bullet.GetComponent<Bullet>().initialize(transform.up, _input.playerIndex);
+                    cooldown = FIRE_RATE;
                     scheduledShot = false;
                 }
             }
