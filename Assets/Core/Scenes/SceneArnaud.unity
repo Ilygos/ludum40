@@ -4865,7 +4865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemies:
-    - {fileID: 1043748997257426, guid: ad5ae94998df44f8690f4955b61d0d13, type: 2}
+    - {fileID: 1132760754864630, guid: 81486952d12d44092b7288c99e00c30c, type: 2}
+    - {fileID: 1132760754864630, guid: 81486952d12d44092b7288c99e00c30c, type: 2}
     - {fileID: 1132760754864630, guid: 81486952d12d44092b7288c99e00c30c, type: 2}
   - enemies:
     - {fileID: 1043748997257426, guid: ad5ae94998df44f8690f4955b61d0d13, type: 2}
@@ -6091,15 +6092,6 @@ Prefab:
     - target: {fileID: 4162984809650144, guid: 676afe28181f941999f3b71223a43006, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 82667739313386402, guid: 676afe28181f941999f3b71223a43006,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409932145819584, guid: 676afe28181f941999f3b71223a43006, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -19.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 676afe28181f941999f3b71223a43006, type: 2}

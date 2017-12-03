@@ -24,21 +24,31 @@ public class Health : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		GiveDamage bullet = collision.gameObject.GetComponent<GiveDamage>();
 
-		if (bullet && !_isDead) {
-			Debug.Log(gameObject.name + " " + HEALTH_POINT);
-			HEALTH_POINT -= bullet.GetDamage();
+		if (bullet == null) {
+			return;
+		}
 
-			if (HEALTH_POINT <= 0) {
+		bool isPlayer = GetComponent<PlayerInput>();
+
+		HEALTH_POINT -= bullet.GetDamage();
+		Debug.Log(gameObject.name + " " + HEALTH_POINT);
+
+		if (HEALTH_POINT <= 0) {
+			_audio.clip = deathSound;
+			_audio.Play();
+
+			Debug.Log("isPlayer: " + isPlayer);
+
+			if (isPlayer) {
 				GetComponent<Animator>().SetBool("death", true);
-				_audio.clip = deathSound;
-				_audio.Play();
-
+				UIManager.Instance.loose();
+			} else { // is monster
 				if (OnDead != null) {
+					Debug.Log("OnDead");
 					OnDead.Invoke();
 					kill();
 				}
 			}
 		}
 	}
-
 }
