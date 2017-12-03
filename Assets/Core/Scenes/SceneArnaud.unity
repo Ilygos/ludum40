@@ -1009,8 +1009,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
+  - {fileID: 1915118407839612, guid: 6603c8f28b3a84263a6f315f52d00ca0, type: 2}
   - {fileID: 1639360763862072, guid: 5767fe3eb1ac4476fbd03523a061aeb4, type: 2}
-  - {fileID: 1639360763862072, guid: 5767fe3eb1ac4476fbd03523a061aeb4, type: 2}
+  - {fileID: 1915118407839612, guid: 6603c8f28b3a84263a6f315f52d00ca0, type: 2}
   curve:
     serializedVersion: 2
     m_Curve:
