@@ -4,6 +4,7 @@ using System;
 public class RoomSetting : MonoBehaviour {
 
 	public EnemyWave[] waves;
+	public GameObject DoorToOpenAtEnd;
 
 	Transform enemiesHolder;
 	int currentWave = 0;
@@ -42,6 +43,7 @@ public class RoomSetting : MonoBehaviour {
 
 					if (currentWave >= waves.Length) {
 						Debug.Log("Room win");
+						DoorToOpenAtEnd.SetActive(false);
 					} else {
 						StartNewWave();
 					}
