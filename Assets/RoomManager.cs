@@ -38,6 +38,9 @@ public class RoomManager : MonoBehaviour {
 			} else {
 				SimpleMoveCamera(nextRoom);
 			}
+
+			// Init the room
+			nextRoom.GetComponent<RoomSetting>().Init();
 		}
 	}
 

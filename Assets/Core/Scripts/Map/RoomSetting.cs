@@ -16,12 +16,11 @@ public class RoomSetting : MonoBehaviour {
 
 		if (waves.Length == 0) {
 			Debug.LogWarning("No wave configured");
-		} else {
-			StartNewWave();
 		}
 	}
 	
-	void Update () {
+	public void Init() {
+		StartNewWave();
 	}
 
 	void StartNewWave() {
