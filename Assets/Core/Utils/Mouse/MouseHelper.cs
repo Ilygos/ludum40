@@ -9,12 +9,10 @@ public static class MouseHelper {
 
 		if (Physics.Raycast(ray, out hit, 1000f, layerMask)) {
 			position = hit.point;
-
 			return true;
-		} else {
-			position = Vector2.zero;
 		}
 
+		position = Vector2.zero;
 		return false;
 	}
 

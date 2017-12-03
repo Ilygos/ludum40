@@ -44,7 +44,7 @@ namespace Game {
 		}
 
 		void SetCursorLock(bool locked) {
-			Cursor.lockState = (locked) ? CursorLockMode.Locked : CursorLockMode.None;
+			// Cursor.lockState = (locked) ? CursorLockMode.Locked : CursorLockMode.None;
 			Cursor.visible = CursorLockMode.Locked != Cursor.lockState;
 		}
 
