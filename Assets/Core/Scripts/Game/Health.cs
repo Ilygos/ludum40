@@ -8,11 +8,15 @@ public class Health : MonoBehaviour {
 		GiveDamage bullet = collision.gameObject.GetComponent<GiveDamage>();
 
 		if (bullet) {
-			HEALTH_POINT -= bullet.GetDamage();
+            Debug.Log(gameObject.name + " " + HEALTH_POINT );
+            HEALTH_POINT -= bullet.GetDamage();
 
 			if (HEALTH_POINT <= 0) {
-              if (gameObject.tag == "Player")  UIManager.Instance.loose();
+                if (gameObject.tag == "Player") UIManager.Instance.loose();
+                else DestroyObject(gameObject);
 			}
+
+
 		}
 	}
 

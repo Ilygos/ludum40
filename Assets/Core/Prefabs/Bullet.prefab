@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 135652749509035764}
   - component: {fileID: 114619319907351652}
   - component: {fileID: 54833111654107768}
+  - component: {fileID: 114627820502108516}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -101,6 +102,18 @@ MonoBehaviour:
   SPEED: 10
   MAX_BOUNCE: 3
   bouncingLeft: 0
+--- !u!114 &114627820502108516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831107347746560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2137066fea944c088ff9bace0877406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DAMAGE: 1
 --- !u!135 &135652749509035764
 SphereCollider:
   m_ObjectHideFlags: 1

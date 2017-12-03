@@ -29,11 +29,7 @@ public class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != "Wall")
-        {
-            DestroyObject(gameObject);
-        }
-        else
+        if (collision.gameObject.tag == "Wall")
         {
             Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>(), false);
             bouncingLeft--;

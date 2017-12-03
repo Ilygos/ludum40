@@ -13,7 +13,12 @@ public class EnemyBullet : MonoBehaviour {
 		Destroy(gameObject, destroyTime);
 	}
 
-	void LateUpdate() {
+    private void OnCollisionEnter(Collision collision)
+    {
+        DestroyObject(gameObject);
+    }
+
+    void LateUpdate() {
 		rbody.velocity = speed * rbody.velocity.normalized;
 	}
 

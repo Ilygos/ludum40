@@ -20,15 +20,19 @@ GameObject:
   m_Component:
   - component: {fileID: 4691938673549152}
   - component: {fileID: 195247189421762976}
-  - component: {fileID: 114544667685376812}
   - component: {fileID: 114316471228692062}
-  m_Layer: 0
+  - component: {fileID: 54409075523822706}
+  - component: {fileID: 65101707312054580}
+  - component: {fileID: 114060061115838522}
+  - component: {fileID: 114271393854803026}
+  - component: {fileID: 114483490128237340}
+  m_Layer: 13
   m_Name: MoveToPlayerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1547665676424878
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,10 +41,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4669946873342774}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Canon
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -53,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4880996998425004}
   - component: {fileID: 212585555879311716}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,13 +105,64 @@ Transform:
   m_Father: {fileID: 4691938673549152}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &114316471228692062
+--- !u!54 &54409075523822706
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132760754864630}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!65 &65101707312054580
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132760754864630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114060061115838522
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1132760754864630}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c078c257b1e84777a3b2f5e45400014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refreshPositionDelay: 1
+--- !u!114 &114271393854803026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132760754864630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2137066fea944c088ff9bace0877406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DAMAGE: 1
+--- !u!114 &114316471228692062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132760754864630}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04a36a5bd7e3a4b33a739427b442fa70, type: 3}
   m_Name: 
@@ -117,7 +172,7 @@ MonoBehaviour:
     type: 2}
   anchorGun: {fileID: 4669946873342774}
   targetPlayer: 1
---- !u!114 &114544667685376812
+--- !u!114 &114483490128237340
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -125,10 +180,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1132760754864630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f71512505c4547ae9659d20d347ad72, type: 3}
+  m_Script: {fileID: 11500000, guid: d627a7bed71e145df83828a8505fef31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRadiusFromStart: 5
+  HEALTH_POINT: 2
 --- !u!195 &195247189421762976
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -181,7 +236,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 5b32c2d36abe44540bed74c1f787033b, type: 3}
   m_Color: {r: 1, g: 0.1397059, b: 0.1397059, a: 1}
   m_FlipX: 0
