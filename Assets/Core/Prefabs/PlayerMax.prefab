@@ -465,6 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HEALTH_POINT: 2
   deathSound: {fileID: 8300000, guid: db382625f5800244080bc172ecc87d5b, type: 3}
+  _isDead: 0
 --- !u!114 &114847143046913738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,6 +502,7 @@ MonoBehaviour:
   - back
   - botRight
   - isDAshing
+  - death
   deadzone: 0.2
   input: {fileID: 0}
   _isDead: 0

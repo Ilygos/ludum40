@@ -2224,6 +2224,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114618809845128914, guid: e4d6301d1e986427e99bb04eb77d9646,
+        type: 2}
+      propertyPath: gameScene
+      value: TestMaxence
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4d6301d1e986427e99bb04eb77d9646, type: 2}
   m_IsPrefabParent: 0

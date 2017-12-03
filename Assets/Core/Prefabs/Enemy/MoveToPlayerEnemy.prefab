@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114271393854803026}
   - component: {fileID: 114483490128237340}
   - component: {fileID: 82855671070725266}
+  - component: {fileID: 95760362443391198}
   m_Layer: 13
   m_Name: MoveToPlayerEnemy
   m_TagString: Untagged
@@ -213,6 +214,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95760362443391198
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132760754864630}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5b9adc5434880740bc9e9ddf7101842, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114060061115838522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HEALTH_POINT: 2
   deathSound: {fileID: 8300000, guid: 29cf882846d6a914a862d52a505891ec, type: 3}
+  _isDead: 0
 --- !u!195 &195247189421762976
 NavMeshAgent:
   m_ObjectHideFlags: 1

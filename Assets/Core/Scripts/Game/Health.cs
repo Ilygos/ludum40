@@ -6,12 +6,23 @@ public class Health : MonoBehaviour {
     public int HEALTH_POINT = 2;
     public AudioClip deathSound;
     public event Action OnDead;
-
+    [HideInInspector]
+    public bool _isDead = false;
     AudioSource _audio;
 
     private void Start()
     {
         _audio = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+
+    }
+
+    public void kill()
+    {
+        DestroyObject(gameObject);
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -22,16 +33,16 @@ public class Health : MonoBehaviour {
             HEALTH_POINT -= bullet.GetDamage();
 
 			if (HEALTH_POINT <= 0) {
-        _audio.clip = deathSound;
-        _audio.Play();
+                _audio.clip = deathSound;
+                _audio.Play();
+                GetComponent<Animator>().SetBool("death", true);
 				if (gameObject.tag == "Player") {
 					UIManager.Instance.loose();
-				} else {
-					DestroyObject(gameObject);
 				}
 
 				if (OnDead != null) {
 					OnDead.Invoke();
+                    kill();
 				}
 			}
 		}
