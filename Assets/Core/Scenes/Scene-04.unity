@@ -1382,6 +1382,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1132760754864630, guid: 81486952d12d44092b7288c99e00c30c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81486952d12d44092b7288c99e00c30c, type: 2}
   m_IsPrefabParent: 0
@@ -1674,6 +1678,10 @@ Prefab:
     - target: {fileID: 114249147547015914, guid: ad5ae94998df44f8690f4955b61d0d13,
         type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043748997257426, guid: ad5ae94998df44f8690f4955b61d0d13, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2307,6 +2315,10 @@ Prefab:
     - target: {fileID: 4801491136951032, guid: f7e278dffc6124250b41edf6bc72df33, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582044347497062, guid: f7e278dffc6124250b41edf6bc72df33, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7e278dffc6124250b41edf6bc72df33, type: 2}
@@ -3028,6 +3040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782804602}
   - component: {fileID: 1782804603}
+  - component: {fileID: 1782804604}
   m_Layer: 0
   m_Name: Room1
   m_TagString: Untagged
@@ -3093,6 +3106,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!114 &1782804604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782804601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485e04bcd1b8346dd8a2e6e1e6182227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - enemies:
+    - {fileID: 1043748997257426, guid: ad5ae94998df44f8690f4955b61d0d13, type: 2}
+    - {fileID: 1132760754864630, guid: 81486952d12d44092b7288c99e00c30c, type: 2}
+  - enemies:
+    - {fileID: 1043748997257426, guid: ad5ae94998df44f8690f4955b61d0d13, type: 2}
 --- !u!1 &1805593736
 GameObject:
   m_ObjectHideFlags: 0
