@@ -10,16 +10,20 @@ public class RoomSetting : MonoBehaviour {
 	int currentWave = 0;
 	Transform enemiesSpawn;
 
-	void Start () {
+	public void Init() {
 		enemiesHolder = GameObject.Find("/Environment/Actors/Enemies").transform;
 		enemiesSpawn = transform.Find("Spawner/Enemy");
+
+		if (enemiesSpawn == null) {
+			Debug.Log("enemiesSpawn null");
+		} else {
+			Debug.Log("enemiesSpawn ok");
+		}
 
 		if (waves.Length == 0) {
 			Debug.LogWarning("No wave configured");
 		}
-	}
-	
-	public void Init() {
+
 		StartNewWave();
 	}
 

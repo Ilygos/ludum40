@@ -21,10 +21,14 @@ public class RoomManager : MonoBehaviour {
 	void GoToRoom(bool withCameraAnimation) {
 		if (currentRoom >= rooms.Length) {
 			Debug.Log("You Win");
+			UIManager.Instance.win();
 		} else {
 			Debug.Log("Go to next room");
 
-			GameObject nextRoom = rooms[currentRoom];
+			GameObject nextRoomPrefab = rooms[currentRoom];
+
+			// Create the room
+			GameObject nextRoom = SpawnRoom(nextRoomPrefab);
 
 			// Move player to new room
 			Transform playerSpawn = nextRoom.transform.Find("Spawner/Player").transform;
@@ -42,6 +46,12 @@ public class RoomManager : MonoBehaviour {
 			// Init the room
 			nextRoom.GetComponent<RoomSetting>().Init();
 		}
+	}
+
+	GameObject SpawnRoom(GameObject nextRoom) {
+		Vector3 position = new Vector3(0f, 0f, currentRoom * 20f);
+
+		return Instantiate(nextRoom, position, nextRoom.transform.rotation, transform);
 	}
 
 	void SimpleMoveCamera(GameObject nextRoom) {
