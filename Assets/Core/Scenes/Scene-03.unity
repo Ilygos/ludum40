@@ -376,6 +376,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114329096245441478, guid: 074bb119c7b7141228770d41717423b7,
+        type: 2}
+      propertyPath: anchorGun
+      value: 
+      objectReference: {fileID: 2050179814}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 074bb119c7b7141228770d41717423b7, type: 2}
   m_IsPrefabParent: 0
@@ -3406,6 +3411,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!4 &2050179814 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4305282231531812, guid: 074bb119c7b7141228770d41717423b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 321598370}
 --- !u!1 &2086508803
 GameObject:
   m_ObjectHideFlags: 0

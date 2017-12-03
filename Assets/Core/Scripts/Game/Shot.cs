@@ -2,7 +2,6 @@
 
 public class Shot : MonoBehaviour {
 
-    public float fireRate = 1.0f;
     public Transform anchorGun;
 	public Aim aim;
 
