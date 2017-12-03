@@ -7,6 +7,7 @@ public class Shot : MonoBehaviour {
     public float deadzone = 0.2f;
     public float fireRate = 1.0f;
     public Transform anchorGun;
+	public Aim aim;
 
     Vector2 axis;
     public GameObject bulletPrefab;
@@ -29,20 +30,6 @@ public class Shot : MonoBehaviour {
         cooldown -= Time.deltaTime;
         if (!GetComponentInParent<CharacterController>()._isDead)
         {
-
-
-            Vector2 inputAxis = _input.aimAxis;
-
-            if (inputAxis.magnitude > deadzone)
-            {
-                axis = inputAxis;
-            }
-            transform.rotation = Quaternion.Euler(90, Mathf.Atan2(axis.y, axis.x) * Mathf.Rad2Deg + 85f, 0);
-
-        }
-
-        if (!GetComponentInParent<CharacterController>()._isDead)
-        {
             GameObject bullet;
 
             if (_input.fire > 0.2) // Todo: Inpractical in case you press a the wrong time you to have wait a whole fireFrame before firering. Also, don't count frame, count second.
@@ -52,8 +39,7 @@ public class Shot : MonoBehaviour {
 
                 if (cooldown <= 0.0f && scheduledShot)
                 {
-                    bullet = Instantiate(bulletPrefab, anchorGun.position, Quaternion.identity);
-                    bullet.GetComponent<Bullet>().initialize(anchorGun.up, _input.playerIndex);
+					Instantiate(bulletPrefab, anchorGun.position, aim.Rotation);
                     cooldown = fireRate;
                     scheduledShot = false;
                 }

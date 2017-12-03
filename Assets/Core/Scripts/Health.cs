@@ -7,8 +7,6 @@ public class Health : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		GiveDamage bullet = collision.gameObject.GetComponent<GiveDamage>();
 
-		Debug.Log("collision");
-
 		if (bullet) {
 			healtPoints -= bullet.GetDamage();
 

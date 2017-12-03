@@ -46,6 +46,9 @@ public class CharacterController : MonoBehaviour {
             axis = inputAxis;
         }
 
+		Debug.Log("inputAxis: " + inputAxis);
+		Debug.Log("axis: " + axis);
+
         int angle = (int)(Mathf.Atan2(axis.y, axis.x) * Mathf.Rad2Deg) + 180;
         int eighthOf360 = angle / 45;
 
