@@ -30,6 +30,10 @@ public class CharacterController : MonoBehaviour {
 	}
 
 	void Update() {
+		if (GetComponent<Health>()._isDead) {
+			return;
+		}
+
 		Move();
 		ChangeSprite();
 	}
