@@ -12,6 +12,8 @@ public class Shot : MonoBehaviour {
 
     [HideInInspector]
     public float deadzone = 0.2f;
+
+    AudioSource _audio;
     Vector2 axis;
     bool scheduledShot = false;
     PlayerInput _input;
@@ -21,6 +23,7 @@ public class Shot : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _input = GetComponentInParent<PlayerInput>();
+        _audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class Shot : MonoBehaviour {
                 {
 					Instantiate(BULLET_PREFAB, anchorGun.position, aim.Rotation);
                     cooldown = FIRE_RATE;
+                    _audio.Play();
                     scheduledShot = false;
                 }
             }

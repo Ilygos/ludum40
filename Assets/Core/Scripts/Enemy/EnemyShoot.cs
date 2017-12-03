@@ -7,10 +7,14 @@ public class EnemyShoot : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public Transform anchorGun;
 	public bool targetPlayer;
+    public AudioClip enemyShootSound;
+    public AudioSource enemyGunAudioSource;
 
-	Transform bulletsHolder;
+    Transform bulletsHolder;
 	Transform player;
 	Vector3 initialPosition;
+    
+
 
 	void Start () {
 		player = GameObject.Find("/Environment/Actors/Player").transform;
@@ -42,6 +46,11 @@ public class EnemyShoot : MonoBehaviour {
 			rotation = anchorGun.rotation;
 		}
 
+        if (enemyShootSound != null && enemyGunAudioSource != null)
+        {
+            enemyGunAudioSource.clip = enemyShootSound;
+            enemyGunAudioSource.Play();
+        }
 		Instantiate(bulletPrefab, anchorGun.position, rotation, bulletsHolder);
 	}
 }

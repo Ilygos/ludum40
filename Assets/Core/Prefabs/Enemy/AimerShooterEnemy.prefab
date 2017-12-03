@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 65555984490516384}
   - component: {fileID: 114667306209858266}
   - component: {fileID: 114054697291028130}
+  - component: {fileID: 82417120107777912}
   m_Layer: 13
   m_Name: AimerShooterEnemy
   m_TagString: Untagged
@@ -132,6 +133,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82417120107777912
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582044347497062}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114054697291028130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HEALTH_POINT: 2
+  deathSound: {fileID: 8300000, guid: 3f9cec70384d67f47bc90004a3a283cb, type: 3}
 --- !u!114 &114201649554916532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +242,8 @@ MonoBehaviour:
     type: 2}
   anchorGun: {fileID: 4803607513239100}
   targetPlayer: 1
+  enemyShootSound: {fileID: 0}
+  enemyGunAudioSource: {fileID: 0}
 --- !u!114 &114315714143560598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2137066fea944c088ff9bace0877406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  piercingDamage: 0
   DAMAGE: 1
 --- !u!195 &195966421613149378
 NavMeshAgent:
