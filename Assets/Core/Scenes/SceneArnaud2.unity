@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 1814734156648460, guid: 91d7d2a6539354448b2344a932693bbe, type: 2}
+  - {fileID: 1915118407839612, guid: e67b83412f7b94a09aa670f8b82d878d, type: 2}
   curve:
     serializedVersion: 2
     m_Curve:
