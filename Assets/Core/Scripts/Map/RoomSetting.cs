@@ -8,9 +8,11 @@ public class RoomSetting : MonoBehaviour {
 
 	Transform enemiesHolder;
 	int currentWave = 0;
+	Transform enemiesSpawn;
 
 	void Start () {
 		enemiesHolder = GameObject.Find("/Environment/Actors/Enemies").transform;
+		enemiesSpawn = transform.Find("Spawner/Enemy");
 
 		if (waves.Length == 0) {
 			Debug.LogWarning("No wave configured");
@@ -28,7 +30,12 @@ public class RoomSetting : MonoBehaviour {
 		int nbEnemyInWave = enemyWave.Length;
 
 		foreach (GameObject enemyPrefab in enemyWave) {
-			Vector3 position = new Vector3(-4f + (float)i, 0, -3);
+			Vector3 baseSapwnPosition = enemiesSpawn.position;
+			Vector3 position = new Vector3(
+				baseSapwnPosition.x + (float)i,
+				0,
+				baseSapwnPosition.z
+			);
 
 			GameObject newEnemy = Instantiate(enemyPrefab, position, enemyPrefab.transform.rotation, enemiesHolder);
 
