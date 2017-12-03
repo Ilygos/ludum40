@@ -34,8 +34,10 @@ public class Health : MonoBehaviour {
 		Debug.Log(gameObject.name + " " + HEALTH_POINT);
 
 		if (HEALTH_POINT <= 0) {
-			_audio.clip = deathSound;
-			_audio.Play();
+			if (_audio != null) {
+				_audio.clip = deathSound;
+				_audio.Play();
+			}
 
 			Debug.Log("isPlayer: " + isPlayer);
 
