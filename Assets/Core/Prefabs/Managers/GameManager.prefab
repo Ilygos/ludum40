@@ -66,4 +66,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleScene: Title
-  gameScene: Scene-05
+  gameScene: Game
